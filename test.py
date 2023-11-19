@@ -1,29 +1,27 @@
 import streamlit as st
-from pages import Home, Flashcards, Feynman
+from pages import Home
+from feynman import Feynman
+from flashcards import Flashcards
+from create_flashcards import CreateFlashcards
+
 
 # Define the pages
 pages = {
-    "Home": Home,
+    "About Us": Home,
     "Flashcards": Flashcards,
+    "Upload Flashcards": CreateFlashcards,
     "Feynman": Feynman,
 }
 
-sets = []
 
-set_ex = {'name': 'set1', 'cards': [
-        {'front': 'front1', 'back': 'back1'}, 
-        {'front': 'front2', 'back': 'back2'}]
-}
-
-sets.append(set_ex)
-curr_card = 0;
-curr_set = 0;
-
-# Create a selectbox for navigation
-#page = st.sidebar.selectbox("Navigation", list(pages.keys()))
-if st.sidebar.button("Home"):
-    pages["Home"]()
-if st.sidebar.button("Flashcards"):
-    pages["Flashcards"](sets, curr_set, curr_card)
-if st.sidebar.button("Feynman"):
+# create a navbar
+st.sidebar.title("Navigation")
+page = st.sidebar.selectbox("What would you like to explore?", list(pages.keys()))
+if page == "About Us":
+    pages["About Us"]()
+elif page == "Flashcards":
+    pages["Flashcards"]()
+elif page == "Feynman":
     pages["Feynman"]()
+elif page == "Upload Flashcards":
+    pages["Upload Flashcards"]()
