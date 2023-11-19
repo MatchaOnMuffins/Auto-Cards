@@ -3,7 +3,6 @@ import streamlit as st
 from mongo import get_database
 from generate_flashcards import get_flash_cards
 import textract
-import io
 import tempfile
 import base64
 import pandas as pd
@@ -32,7 +31,7 @@ def CreateFlashcards():
 
     # upload flashcards
     uploaded_file = st.file_uploader(
-        "Ch oose a PDF file that contains your notes", type="pdf"
+        "Choose a PDF file that contains your notes", type="pdf"
     )
 
     if uploaded_file is not None:
@@ -45,13 +44,11 @@ def CreateFlashcards():
                 text = textract.process(temp.name, encoding="utf-8", extension=".pdf")
             db["notes"].insert_one({"text": text.decode("utf-8"), "user": "demouser"})
 
-            st.write("Here are your flashcards")
-
             nlp_result = get_top_ranked_phrases(text.decode("utf-8"))
-            df = pd.DataFrame(nlp_result, columns=['Phrase', 'Rank', 'Count'])
-            st.line_chart(df, x='Count', y='Rank')
+            df = pd.DataFrame(nlp_result, columns=["Phrase", "Rank", "Count"])
             st.write(df)
-            st.write(get_flash_cards(text.decode("utf-8")))
+            st.line_chart(df, x="Count", y="Rank")
+            get_flash_cards(text.decode("utf-8"))
 
         except Exception as e:
             print(e)

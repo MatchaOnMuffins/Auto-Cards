@@ -1,14 +1,17 @@
 import json
 import uuid
-
-import openai
 import os
+
+from openai import OpenAI
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY_SELF"))
+
 
 from mongo import get_database
 import dotenv
 
 dotenv.load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY_SELF")
+
 
 # Initialize FastAPI app
 
@@ -44,8 +47,8 @@ def format_prompt(prompt, num_flashcards=5):
 
 def get_flashcard_gpt_out(raw_notes_text, number_of_flashcards=5):
     pmpt = format_prompt(prompt=raw_notes_text, num_flashcards=number_of_flashcards)
-    completion = openai.ChatCompletion.create(
-        engine="gpt-4",
+    completion = client.chat.completions.create(
+        model="gpt-4",
         messages=[
             {
                 "role": "system",
@@ -59,7 +62,7 @@ def get_flashcard_gpt_out(raw_notes_text, number_of_flashcards=5):
         ],
         stream=False,
     )
-    return completion.choices[0].message["content"]
+    return completion.choices[0].message.content
 
 
 def parse_gpt_output(gpt_out):

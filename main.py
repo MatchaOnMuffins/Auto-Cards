@@ -8,9 +8,9 @@ from create_flashcards import CreateFlashcards
 # Define the pages
 pages = {
     "About Us": Home,
-    "Flashcards": Flashcards,
-    "Upload Flashcards": CreateFlashcards,
     "Feynman": Feynman,
+    "Flashcards": Flashcards,
+    "Upload Flashcards": CreateFlashcards
 }
 
 

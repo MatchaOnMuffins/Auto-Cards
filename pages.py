@@ -2,7 +2,26 @@ import streamlit as st
 
 
 def Home():
-    st.title("About Us")
+    st.markdown("# 1. Introduction")
+
+    st.markdown("# 2. Tech Stack")
+    st.write("Database: Mongo DB: No SQL database, easy data management and retrieval, SDK dramatically simplifies development. (potentially vector data storage)")
+    st.write("Server: Docterized app on GCP")
+    st.write("OpenAI: GPT-4-8k, provided by UM ITS")
+    st.write("Frontend: Streamlit, easy to use, easy to deploy")
+
+    st.markdown("# 3. Features")
+    st.markdown("### Feynman")
+    st.write("The Feynman Technique is a learning method that involves explaining a concept in simple terms, identifying gaps in understanding, and refining the explanation. This approach, named after physicist Richard Feynman, helps deepen comprehension and clarify complex ideas.")
+    st.write("We achieved this by using GPT-4 to respond as if it didn't know anything about a particular subject. The user would then attempt to explain the subject, and GPT-4 would respond using only information told to it by the user. This would allow the user to identify gaps in their knowledge and refine their explanation.")
+    st.markdown("### Flashcards")
+    st.write("Everyone takes notes, but not everyone is willing to create flashcards for them. We wanted to make this process easier by allowing users to create flashcards from their notes with the click of a button. This would allow them to study more efficiently and effectively.")
+    st.write("Currently, we support uploading a pdf file of the notes, which will then get converted to flashcards by GPT-4.")
+
+    st.markdown("# 4. Usage")
+
+    st.markdown("# 5. Future Improvements")
+    st.write("Adding support for youtube videos would be a good addition.")
 
 
 def Flashcards(sets, curr_set, curr_card):
