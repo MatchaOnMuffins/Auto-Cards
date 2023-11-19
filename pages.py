@@ -3,6 +3,7 @@ import streamlit as st
 
 def Home():
     st.markdown("# 1. Introduction")
+    st.write("The goal of this project is to create an assisted learning application enhanced with AI. We chose this project due to the fact that this is something that we felt like we would like to use ourselves. We wanted to create an application that would help us learn more efficiently and effectively.")
 
     st.markdown("# 2. Tech Stack")
     st.write("Database: Mongo DB: No SQL database, easy data management and retrieval, SDK dramatically simplifies development. (potentially vector data storage)")
