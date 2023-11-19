@@ -6,10 +6,16 @@ RUN pip install -r /tmp/requirements.txt
 
 COPY install_nlp.sh /tmp/install_nlp.sh
 
+RUN chmod +x /tmp/install_nlp.sh
+
 RUN /tmp/install_nlp.sh
 
 COPY . /app
 
 WORKDIR /app
 
-CMD ["streamlit", "run", "main.py"]
+COPY main.py /app/main.py
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "main.py", "--server.port", "$PORT"]
