@@ -16,6 +16,6 @@ WORKDIR /app
 
 COPY main.py /app/main.py
 
-EXPOSE 8501
+HEALTHCHECK CMD curl --fail http://localhost:8080/_stcore/health
 
-CMD ["streamlit", "run", "main.py", "--server.port", "$PORT"]
+ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8080", "--server.address=0.0.0.0"]

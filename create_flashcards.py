@@ -49,6 +49,7 @@ def CreateFlashcards():
             st.write(df)
             st.line_chart(df, x="Count", y="Rank")
             get_flash_cards(text.decode("utf-8"))
+            st.write("Flashcards created successfully!")
 
         except Exception as e:
             print(e)

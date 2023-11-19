@@ -19,8 +19,9 @@ def Home():
     st.write("Currently, we support uploading a pdf file of the notes, which will then get converted to flashcards by GPT-4.")
 
     st.markdown("# 4. Usage")
-    st.write("An example usage of the Feynman feature would be if I wanted to better my understanding about differential equations.")
-    st.write("An example usage of the Flashcards feature would be if I had notes for my EECS 280 course, and wanted to create flashcards for them.")
+    st.write("An example usage of the Feynman feature would be a user wanted to better their understanding about differential equations. The user would click on the Feynman feature, select other as the subject, and then put \"Differential Equations\" as the specified topic. The user would then be able to explain the subject of differential equations to the bot in a back and forth conversation.")
+    
+    st.write("An example usage of the Flashcards feature would be if a user had notes for my EECS 280 course, and wanted to create flashcards for them. They would click on the \"Upload Flashcards\" tab, upload the pdf file of their notes, and then the flashcards will be automatically generated and added to the database. The flashcards will then be viewed by going to the \"Flashcards\" tab, where the user can then study them.")
 
     st.markdown("# 5. Future Improvements")
     st.write("Adding support for youtube videos would be a good addition.")
