@@ -25,7 +25,11 @@ def Home():
     st.write("An example usage of the Flashcards feature would be if a user had notes for my EECS 280 course, and wanted to create flashcards for them. They would click on the \"Upload Flashcards\" tab, upload the pdf file of their notes, and then the flashcards will be automatically generated and added to the database. The flashcards will then be viewed by going to the \"Flashcards\" tab, where the user can then study them.")
 
     st.markdown("# 5. Future Improvements")
-    st.write("Adding support for youtube videos would be a good addition.")
+    st.write("1. Adding support for youtube videos would be a good addition.")
+    st.write("2. Making the flash cards editable. It would be useful to delete or edit cards that GPT-4 didn't get exactly right")
+    st.write("3. History of previous Feynman technique uses so a user can go back and review")
+    st.write("4. Seperating flashcards into sets")
+    st.write("5. Adding spaced repition into the flashcards to maximize efficiency")
 
 
 def Flashcards(sets, curr_set, curr_card):
